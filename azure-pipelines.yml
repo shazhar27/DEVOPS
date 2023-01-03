@@ -20,13 +20,8 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- task: CopyFiles@2
+- task: DownloadBuildArtifacts@0
   inputs:
-    SourceFolder: '$(Agent.BuildDirectory)'
-    Contents: '**/.war'
-    TargetFolder: '$(build.artifactstagingdirectory)'
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'MavenPublishArtifact'
-    publishLocation: 'Container'
+    buildType: 'current'
+    downloadType: 'specific'
+    downloadPath: '$(Build.ArtifactStagingDirectory)'
