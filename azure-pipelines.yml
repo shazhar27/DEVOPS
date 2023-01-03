@@ -23,11 +23,5 @@ steps:
 - task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'current'
-    downloadType: 'single'
-    artifactName: 'MavenBuildArtifact'
+    downloadType: 'specific'
     downloadPath: '$(System.ArtifactsDirectory)'
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(System.ArtifactsDirectory)'
-    Contents: '**/.war'
-    TargetFolder: '$(build.artifactstagingdirectory)'
