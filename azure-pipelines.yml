@@ -23,11 +23,6 @@ steps:
 - task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'current'
-    downloadType: 'specific'
-    itemPattern: '**/.war'
-    downloadPath: '$(System.ArtifactsDirectory)'
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'MavenBuildArtifacts'
-    publishLocation: 'Container'
+    downloadType: 'single'
+    artifactName: 'MavenBuildArtifact'
+    downloadPath: '$(build.artifactstagingdirectory)'
