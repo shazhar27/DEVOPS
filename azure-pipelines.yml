@@ -25,3 +25,8 @@ steps:
     buildType: 'current'
     downloadType: 'specific'
     downloadPath: '$(System.ArtifactsDirectory)'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(System.ArtifactsDirectory)'
+    Contents: '**/.war'
+    TargetFolder: '$(build.artifactstagingdirectory)'
