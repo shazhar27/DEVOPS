@@ -25,8 +25,8 @@ steps:
     buildType: 'current'
     downloadType: 'specific'
     downloadPath: '$(System.ArtifactsDirectory)'
-- task: CopyFiles@2
+- task: PublishBuildArtifacts@1
   inputs:
-    SourceFolder: '$(System.ArtifactsDirectory)'
-    Contents: '**/.war'
-    TargetFolder: '$(build.artifactstagingdirectory)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'MavenPublishArtifact'
+    publishLocation: 'Container'
