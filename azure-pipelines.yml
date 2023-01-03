@@ -20,12 +20,7 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- task: DownloadBuildArtifacts@0
-  inputs:
-    buildType: 'current'
-    downloadType: 'specific'
-    downloadPath: '$(Build.ArtifactStagingDirectory)'
 - task: CopyFiles@2
   inputs:
-    Contents: '**/.war'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    Contents: '**/*.war'
+    TargetFolder: '$(build.artifactstagingdirectory)'
