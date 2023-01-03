@@ -25,3 +25,8 @@ steps:
     buildType: 'current'
     downloadType: 'specific'
     downloadPath: '$(Build.ArtifactStagingDirectory)'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'MavenPublishArtifact'
+    publishLocation: 'Container'
